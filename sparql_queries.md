@@ -1,9 +1,9 @@
-# Florentiae Illustrata — SPARQL Query Collection
+# Florentia Illustrata — SPARQL Query Collection
 ## Female Property Ownership in the Florentine Cadastre of the 19th century
 
-This repository collects SPARQL queries designed to explore the **Florentiae Illustrata** dataset. The dataset is modelled using the [CIDOC-CRM](http://www.cidoc-crm.org/) ontology and published as RDF/Turtle.
+This repository collects SPARQL queries designed to explore the **Florentia Illustrata** dataset. The dataset is modelled using the [CIDOC-CRM](http://www.cidoc-crm.org/) ontology and published as RDF/Turtle.
 
-The queries in this collection focus specifically on **female property ownership**: identifying women in the records, measuring their holdings, characterising the types of property they owned, and detecting co-ownership patterns. Women appear in the cadastre with a distinctive identifier (`moglie_di`, "wife of"), which this collection uses as the primary gender filter.
+The queries in this collection focus specifically on **female property ownership**: identifying women in the records, measuring their holdings, characterising the types of property they owned, and detecting co-ownership patterns. Women appear in the cadastre mostly with a distinctive identifier (`moglie_di`, "wife of"), which this collection uses as the primary gender filter.
 
 ---
 
@@ -66,7 +66,7 @@ FILTER(STRSTARTS(STR(?p), "https://florentiaillustrata.net/resource/patronimico/
 
 ### Q01 — Female property owners — basic aggregation
 
-Retrieves all female property owners (identified via `moglie_di`) with a count of their parcels and the list of parcel URIs. Ownership is reconstructed through `crm:E8_Acquisition` events: a parcel links to an acquisition event via `crm:P24i_changed_ownership_through`, and a person acquires title through it via `crm:P22i_acquired_title_through`.
+Retrieves all female property owners (identified via `moglie_di`) with a count of their parcels and the list of parcel URIs. Ownership is reconstructed through `crm:E8_Acquisition` events: a parcel links to an acquisition event via `crm:P24i_changed_ownership_through`, and a person acquires title through it via `crm:P22i_acquired_title_through` (legal ownership).
 
 **Returns:** owner label, marital reference, patronymic(s), number of owned parcels, list of parcel URIs — ordered by parcel count descending.
 
