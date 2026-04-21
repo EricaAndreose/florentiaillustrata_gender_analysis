@@ -33,8 +33,8 @@ Download the file and place it at the path referenced in the scripts before runn
 
 ## Input Files
 
-| File | Description |
-|------|-------------|
+| File | Description | Link |
+|------|-------------|------|
 | `florentiaIllustrata_KG_20250310_v01.ttl` | The Florentiae Illustrata RDF graph in Turtle format | download: https://doi.org/10.6092/unibo/amsacta/8236 |
 | `data.csv` | External Italian name–gender frequency dataset | download: https://gist.github.com/tezzutezzu/8f025345cadc5f92b9b311bf032b264d |
 
