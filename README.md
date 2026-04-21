@@ -19,7 +19,18 @@ The materials collected here document the two analytical procedures described in
 ├── sparql_queries.md                  ← documented SPARQL queries
 ├── gender_filter_with_names.md        ← documented Python gender inference pipeline
 ├── results_sparql_queries/            ← CSV outputs of the SPARQL queries
-└── results_gender_filter_with_names/  ← CSV outputs of the Python pipeline
+├── results_gender_filter_with_names/  ← CSV outputs of the Python pipeline
+└── results_charts/                    ← visualisation notebook, input data, and chart outputs
+    ├── Florentia_visualizzazioni.ipynb
+    ├── florentia_visualizations.png
+    ├── florentia_visualizations_all.png
+    ├── florentia_visualizations_attivita.png
+    ├── florentia_visualizations_log_scale.png
+    └── data/                          ← CSV input files consumed by the notebook
+        ├── macro.csv
+        ├── no_mogliedi.csv
+        ├── si_mogliedi.csv
+        └── lista_donne_non_sposate.csv
 ```
 
 ---
@@ -72,6 +83,28 @@ CSV files produced by the Python pipeline documented in `gender_filter_with_name
 |------|-------------|
 | `donne_non_sposate_senza_moglie_di.csv` | Candidates without `moglie_di` whose first name has a feminine attestation (Step 1 output) |
 | `donne_non_sposate_filtrato.csv` | Final list after removal of ambiguous names (Step 2 output) |
+
+### `results_charts/`
+
+Contains the Jupyter notebook `Florentia_visualizzazioni.ipynb`, which generates the visualisations included in the paper, together with its input data and chart outputs. See `results_charts/README.md` for full details.
+
+**Input files** (`results_charts/data/`):
+
+| File | Description |
+|------|-------------|
+| `macro.csv` | Lookup table mapping each `specie_pro` (property type label) to a `macro_categoria` (aggregated category), used to group property types in the charts |
+| `si_mogliedi.csv` | Per-parcel ownership records for women identified via the `moglie_di` filter (married women); columns: `nome`, `cognome`, `patronimico`, `marito`, `appezzamento`, `mq`, `via`, `numCivico`, `speciePro`, `tipoPossesso`, `comproprietari`, `numeroAppezzamenti`, `superficieTotaleMq` |
+| `no_mogliedi.csv` | Per-parcel ownership records for women without `moglie_di` (unmarried women, widows, nuns); same columns as above minus `marito` |
+| `lista_donne_non_sposate.csv` | List of persons inferred as unmarried female landowners by the gender-inference pipeline; columns: `uri`, `nome`, `cognome`, `patronimico`, `genere_inferito` |
+
+**Chart outputs** (`results_charts/`):
+
+| File | Description |
+|------|-------------|
+| `florentia_visualizations.png` | Main composite figure included in the paper |
+| `florentia_visualizations_all.png` | Extended version with all property categories |
+| `florentia_visualizations_attivita.png` | Chart focused on activity-type properties |
+| `florentia_visualizations_log_scale.png` | Log-scale variant for surface-area comparison |
 
 ---
 
